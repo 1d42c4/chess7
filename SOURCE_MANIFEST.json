@@ -10735,10 +10735,10 @@
     {
       "path": "index.html",
       "sourceBytes": 8722,
-      "uploadedBytes": 8722,
+      "uploadedBytes": 8713,
       "sourceSha256": "98e53959da255f99dc072178454d14c3891a675e961834d76e076e6b71ba4b85",
-      "uploadedSha256": "98e53959da255f99dc072178454d14c3891a675e961834d76e076e6b71ba4b85",
-      "modified": false
+      "uploadedSha256": "887777935b2eeef69f9fdf4f107ea10515c4b870836ef4a54a24506c16ea5d1a",
+      "modified": true
     },
     {
       "path": "legacy/chess-opening-courses/hippo-counter-trainer.html",
@@ -10857,6 +10857,10 @@
     {
       "path": "README.md",
       "reason": "Added live site, collection directory, file inventory, publishing instructions, and protection details; retained original Markdown documentation when present."
+    },
+    {
+      "path": "index.html",
+      "reason": "Updated the homepage GitHub Repository link to this published repository."
     }
   ]
 }
