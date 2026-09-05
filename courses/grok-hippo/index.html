@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grok Hippo Course — Chess Combat School</title>
+<style>
+:root{
+  --bg:#262522;
+  --panel:#312e2b;
+  --text:#f2f2f2;
+  --muted:#b9b9b9;
+  --accent:#81b64c;
+  --line:rgba(255,255,255,.09);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  line-height:1.55;
+}
+main{
+  width:min(920px,92vw);
+  margin:48px auto;
+}
+a{color:#b6da94}
+.back{
+  text-decoration:none;
+  font-weight:850;
+}
+h1{
+  font-size:clamp(36px,6vw,60px);
+  line-height:1.02;
+  margin:18px 0 10px;
+}
+.lead{
+  max-width:800px;
+  color:var(--muted);
+  font-size:18px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+  margin-top:28px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:22px;
+}
+.card h2{margin-top:0}
+.card p{color:#d5d5d5}
+.button{
+  display:inline-block;
+  margin-top:8px;
+  background:var(--accent);
+  color:#17210f;
+  text-decoration:none;
+  font-weight:900;
+  padding:10px 14px;
+  border-radius:7px;
+}
+.note{
+  margin-top:28px;
+  padding:16px 18px;
+  background:#2d2b29;
+  border-left:4px solid var(--accent);
+  border-radius:7px;
+  color:#d5d5d5;
+}
+footer{
+  margin-top:32px;
+  color:#999;
+  font-size:13px;
+}
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="../../index.html">← Chess Combat School</a>
+
+  <h1>Grok Hippo Course</h1>
+
+  <p class="lead">
+    A separate AI-generated Hippopotamus course with dedicated Black and White
+    training sections. This course is preserved alongside the newer Chess Combat
+    School Hippo field manuals so both approaches remain available for study.
+  </p>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Hippo from Black</h2>
+      <p>Open the Grok-generated Black Hippo course.</p>
+      <a class="button" href="hippo-black/index.html">Study Black Course</a>
+    </section>
+
+    <section class="card">
+      <h2>Hippo from White</h2>
+      <p>Open the Grok-generated White Hippo course.</p>
+      <a class="button" href="hippo-white/index.html">Study White Course</a>
+    </section>
+  </div>
+
+  <div class="note">
+    <strong>Why keep both Hippo courses?</strong><br>
+    Different AI-generated explanations can emphasize different plans, triggers,
+    and structures. Studying both gives another way to reinforce the same opening.
+  </div>
+
+  <footer>
+    <strong>AI-made and free. Intended for learning and sharing, not for sale.</strong>
+  </footer>
+</main>
+</body>
+</html>

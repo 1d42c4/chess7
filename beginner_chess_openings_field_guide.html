@@ -1,0 +1,1274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beginner's Field Guide to Chess Openings</title>
+<style>
+:root{
+ --bg:#242321;--panel:#312e2b;--soft:#3a3734;--text:#f3f3f3;--muted:#b9b9b9;
+ --green:#81b64c;--green2:#a7d37a;--gold:#e7b85f;--blue:#74a7d9;--red:#d97b70;
+ --line:rgba(255,255,255,.09);--max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.55}
+a{color:#b7dc95}
+.hero{background:linear-gradient(180deg,#302e2b,#262522);border-bottom:1px solid var(--line)}
+.wrap{width:min(var(--max),94vw);margin:auto}
+.hero-inner{padding:54px 0 44px}
+.kicker{text-transform:uppercase;letter-spacing:.14em;color:var(--green2);font-size:12px;font-weight:850}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.0;margin:10px 0 18px;max-width:900px}
+.hero p{font-size:clamp(17px,2vw,21px);color:#d5d5d5;max-width:880px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.badge{background:#3c3936;border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:#ddd;font-size:13px}
+nav{position:sticky;top:0;z-index:20;background:rgba(38,37,34,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;gap:16px;overflow:auto;padding:12px 0;white-space:nowrap}
+.nav-inner a{text-decoration:none;color:#ddd;font-weight:700;font-size:14px}
+section{padding:42px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,42px);margin:0 0 12px}
+h3{margin:0}
+.lead{color:#ccc;max-width:900px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:20px}
+.panel{background:var(--panel);border-radius:10px;padding:18px;border:1px solid var(--line)}
+.panel h3{margin-bottom:7px}
+.panel p{color:#d6d6d6}
+.callout{background:#293226;border-left:5px solid var(--green);padding:18px 20px;border-radius:8px;margin:20px 0;font-size:17px}
+.warning{background:#362d24;border-left-color:var(--gold)}
+.red{background:#382725;border-left-color:var(--red)}
+.rule-list{display:grid;gap:10px;margin-top:18px}
+.rule{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--panel);padding:14px;border-radius:8px}
+.num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#17210f;font-weight:900}
+.bands{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:18px}
+.band{background:var(--panel);padding:17px;border-radius:9px;border-top:4px solid var(--blue)}
+.band h3{margin-bottom:6px}.band p{color:#d2d2d2}
+.band strong{color:#fff}
+.table-wrap{overflow:auto;background:var(--panel);border-radius:9px;border:1px solid var(--line);margin-top:18px}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{padding:12px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#292725;position:sticky;top:47px}
+.good{color:#b6db95}.bad{color:#ef9b8f}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 12px;align-items:center}
+.filters button,.filters input{border:1px solid var(--line);background:#35322f;color:#eee;border-radius:7px;padding:10px 12px;font:inherit}
+.filters button{cursor:pointer;font-weight:750}
+.filters button.active{background:var(--green);color:#17210f}
+.filters input{min-width:min(360px,100%);flex:1}
+.openings{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
+.opening-card{background:var(--panel);border-radius:10px;border:1px solid var(--line);padding:17px}
+.opening-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.opening-card h3{font-size:21px}
+.moves{margin-top:5px;color:#c9c9c9;font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.verdict{font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:5px 8px;border-radius:999px;background:#444;white-space:nowrap;font-weight:850}
+.verdict.recommended{background:#38532b}.verdict.good{background:#35485c}.verdict.optional{background:#574833}
+.verdict.recommended-later{background:#51456a}.verdict.advanced{background:#6a3f3b}.verdict.avoid-as-main{background:#672f2a}
+.verdict.recommended-with-caution{background:#5b512f}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:14px 0}
+.stats span{background:#282624;border-radius:6px;padding:8px 9px;font-size:12px;color:#d4d4d4}
+.stats b{display:block;color:#999;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.opening-card p{color:#d7d7d7;margin:10px 0}
+.field-note{background:#292725;border-left:3px solid var(--green);border-radius:5px;padding:10px 11px;color:#ddd;font-size:14px}
+.checklist{columns:2;column-gap:26px;margin-top:16px}
+.checklist li{break-inside:avoid;margin-bottom:9px}
+.source-box{font-size:14px;color:#c8c8c8}
+footer{padding:30px 0 44px;color:#999;text-align:center}
+@media(max-width:700px){.checklist{columns:1}.openings{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.hero-inner{padding-top:34px}th{top:47px}}
+@media print{nav,.filters{display:none}.opening-card,.panel,.band,.rule{break-inside:avoid}body{background:white;color:black}.panel,.opening-card,.band,.rule,.table-wrap{border:1px solid #aaa;background:white;color:black}.hero{background:white}.hero p,.lead,.panel p,.band p,.opening-card p,.source-box{color:#333}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="kicker">Chess Combat School • Beginner Reference</div>
+    <h1>Should Beginners Study Openings?</h1>
+    <p>A practical field guide for roughly sub-1500 players: how much opening study is useful, how much is a waste of time, why sticking with one sound repertoire helps, and which popular openings are actually good learning tools.</p>
+    <div class="badges">
+      <span class="badge">60 openings & defenses</span>
+      <span class="badge">White + Black</span>
+      <span class="badge">Beginner-fit ratings</span>
+      <span class="badge">Theory-load ratings</span>
+      <span class="badge">Single offline HTML file</span>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap nav-inner">
+<a href="#answer">The answer</a><a href="#rating">By rating</a><a href="#study">How to study</a><a href="#choose">Choose a repertoire</a><a href="#catalog">Opening catalog</a><a href="#traps">What to avoid</a><a href="#sources">Sources</a>
+</div></nav>
+
+<section id="answer"><div class="wrap">
+<h2>So: should a beginner learn openings?</h2>
+<p class="lead"><strong>Yes—but not the way people usually mean when they say “study openings.”</strong> You should learn a small, sound repertoire early enough that you repeatedly reach positions you recognize. You should not spend most of your chess time memorizing twenty-move engine lines that your opponents will almost never play.</p>
+
+<div class="callout">
+<strong>A useful compromise:</strong> learn enough opening to reach a healthy middlegame with a plan. Then spend much more time on tactics, blunder prevention, calculation, basic endgames, and reviewing your own games.
+</div>
+
+<div class="grid">
+<div class="panel"><h3>The “don't study openings” crowd is right about one thing</h3><p>At beginner level, games are usually decided by hanging pieces, missed tactics, king safety, and one-move threats—not by whether your opening was +0.25 or +0.05. Deep memorization is usually a poor return on time.</p></div>
+<div class="panel"><h3>The “learn an opening and stick with it” crowd is also right</h3><p>If you use the same sound opening repeatedly, you stop reinventing the first ten moves every game. You learn the same pawn structures, typical tactics, bad pieces, breaks, and endgames. That repeated experience is real chess education.</p></div>
+<div class="panel"><h3>The mistake is confusing an opening with memorization</h3><p>An opening is not a password. Good opening study means understanding where pieces belong, what pawn breaks you want, what your opponent wants, and what should make you change plans.</p></div>
+</div>
+
+<div class="callout warning">
+<strong>The field rule:</strong> below ~1500, opening study should mostly be <em>structure + plans + common mistakes + a short move skeleton</em>. Learn more theory only when your own games repeatedly show that you need it.
+</div>
+
+<p class="lead">GM Daniel Naroditsky has publicly pushed back on the simplistic “beginners should not learn openings” line. The useful version of that idea is not “memorize everything”; it is closer to: choose a good opening, learn the major ideas and normal lines, and stay with it long enough to accumulate real experience. That is much different from changing openings every time you lose.</p>
+</div></section>
+
+<section id="rating"><div class="wrap">
+<h2>How much opening study by rating?</h2>
+<p class="lead">These are rough training bands, not laws. A Chess.com rapid rating, Lichess rating, USCF rating, and FIDE rating are not interchangeable. Use the ranges as a description of skill level, not a scientific cutoff.</p>
+
+<div class="bands">
+<div class="band"><h3>New / roughly under 600</h3><p><strong>Opening priority: very low.</strong> Learn center, development, castling, queen safety, and “is anything hanging?” Pick simple first moves so you are not starting from zero each game.</p></div>
+<div class="band"><h3>Roughly 600–900</h3><p><strong>Opening priority: low but useful.</strong> Have one White first-move repertoire and one response to 1.e4 and 1.d4. Know perhaps 4–6 normal moves and the basic plan—not twenty variations.</p></div>
+<div class="band"><h3>Roughly 900–1200</h3><p><strong>Opening priority: moderate.</strong> Start learning common opponent responses, recurring tactics, pawn breaks, and typical middlegames. Analyze your losses and add theory where opponents actually challenge you.</p></div>
+<div class="band"><h3>Roughly 1200–1500</h3><p><strong>Opening priority: definitely relevant.</strong> Build a coherent repertoire, understand major sidelines, and know the structures you are aiming for. Still do not let opening study consume tactics and game analysis.</p></div>
+<div class="band"><h3>1500+</h3><p><strong>Opening priority: increasing.</strong> More exact move orders matter, opponents punish inaccurate sequences more often, and targeted database/engine work becomes more valuable.</p></div>
+</div>
+</div></section>
+
+<section id="study"><div class="wrap">
+<h2>What “learning an opening” should mean</h2>
+<div class="rule-list">
+<div class="rule"><div class="num">1</div><div><strong>Know the first position you are trying to reach.</strong><br>Do not begin by memorizing branches. Know what a healthy setup looks like.</div></div>
+<div class="rule"><div class="num">2</div><div><strong>Know your main pawn break.</strong><br>Examples: d4 in the Italian, c5 in the French, e5 or c5 in many King's Indian structures, b4-b5 in a Carlsbad minority attack.</div></div>
+<div class="rule"><div class="num">3</div><div><strong>Know your worst piece.</strong><br>Every opening has a piece that can become awkward. Learn where that piece normally goes and why.</div></div>
+<div class="rule"><div class="num">4</div><div><strong>Know what your opponent wants.</strong><br>If you only know your own setup, the first sensible deviation will make you feel lost.</div></div>
+<div class="rule"><div class="num">5</div><div><strong>Know the common tactical punishments.</strong><br>Opening knowledge is most valuable when it stops you from losing material or getting mated before the game starts.</div></div>
+<div class="rule"><div class="num">6</div><div><strong>Review your own games.</strong><br>Find the first move where you did not understand the position. Add exactly that missing piece to your repertoire.</div></div>
+<div class="rule"><div class="num">7</div><div><strong>Stay with the opening.</strong><br>Repeated positions create pattern recognition. Constantly switching openings resets your experience.</div></div>
+<div class="rule"><div class="num">8</div><div><strong>Stop studying when the opening stops being your problem.</strong><br>If you regularly get good positions and then hang pieces, more opening theory is not the cure.</div></div>
+</div>
+
+<div class="callout">
+<strong>Good beginner opening study:</strong> “In this structure I want d4, my bishop belongs on c4, Black wants ...d5, and I should castle before attacking.”
+<br><br>
+<strong>Bad beginner opening study:</strong> “The database says 8.Re1 is 0.18 better than 8.h3, so I memorized twelve more moves.”
+</div>
+</div></section>
+
+<section id="choose"><div class="wrap">
+<h2>A simple beginner repertoire that can grow with you</h2>
+<p class="lead">There is no single best repertoire, but these are examples of sound choices that teach transferable chess.</p>
+<div class="grid">
+<div class="panel"><h3>Classical 1.e4 learner</h3><p><strong>White:</strong> Italian or Scotch.<br><strong>Black vs 1.e4:</strong> 1...e5 or Caro-Kann.<br><strong>Black vs 1.d4:</strong> QGD or Slav.</p><p>This is probably the cleanest “learn normal chess” package.</p></div>
+<div class="panel"><h3>Strategic 1.d4 learner</h3><p><strong>White:</strong> Queen's Gambit.<br><strong>Black vs 1.e4:</strong> Caro-Kann or French.<br><strong>Black vs 1.d4:</strong> QGD or Slav.</p><p>Excellent for learning pawn structures, tension, breaks, and long-term plans.</p></div>
+<div class="panel"><h3>Aggressive learner</h3><p><strong>White:</strong> Scotch/Vienna, with King's Gambit as a side weapon.<br><strong>Black vs 1.e4:</strong> Sicilian after you choose one family.<br><strong>Black vs 1.d4:</strong> Dutch or King's Indian once you understand counterplay.</p><p>Keep at least one sound classical opening in the repertoire so aggression is built on fundamentals.</p></div>
+<div class="panel"><h3>Low-theory learner</h3><p><strong>White:</strong> Italian/Pianissimo, London, or Colle.<br><strong>Black vs 1.e4:</strong> Scandinavian or Caro-Kann.<br><strong>Black vs 1.d4:</strong> Slav or simple QGD setup.</p><p>Low theory should mean fewer branches—not “ignore what the opponent does.”</p></div>
+</div>
+</div></section>
+
+<section id="catalog"><div class="wrap">
+<h2>Opening catalog: how good is it, and is it beginner-friendly?</h2>
+<p class="lead">“General quality” means the opening's overall chess reputation, not whether it will score well in your games. A theoretically inferior opening can score very well at club level; a world-class opening can be a terrible learning choice if you do not understand the positions.</p>
+
+<div class="filters">
+<button class="active" data-filter="All">All</button>
+<button data-filter="White">White</button>
+<button data-filter="Black vs 1.e4">Black vs 1.e4</button>
+<button data-filter="Black vs 1.d4">Black vs 1.d4</button>
+<input id="search" type="search" placeholder="Search: tactical, gambit, Queen's Gambit, low theory...">
+</div>
+
+<div class="openings">
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="italian game white 1.e4 e5 2.nf3 nc6 3.bc4 excellent excellent medium open / tactical one of the best first serious openings. develops naturally, teaches center, king safety, pins, tactics, and quiet maneuvering. learn plans around c3-d4, d3, re1, and when bxf7+ is actually justified. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Italian Game</h3>
+          <div class="moves">1.e4 e5 2.Nf3 Nc6 3.Bc4</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Open / tactical</span>
+      </div>
+      <p>One of the best first serious openings. Develops naturally, teaches center, king safety, pins, tactics, and quiet maneuvering.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Learn plans around c3-d4, d3, Re1, and when Bxf7+ is actually justified.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="giuoco pianissimo white italian with d3/c3 excellent excellent low-medium quiet / strategic a calmer italian setup that still teaches real chess and gives repeated structures. learn slow improvement, central break d4, and when to expand on the kingside. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Giuoco Pianissimo</h3>
+          <div class="moves">Italian with d3/c3</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Low-Medium</span>
+        <span><b>Character</b>Quiet / strategic</span>
+      </div>
+      <p>A calmer Italian setup that still teaches real chess and gives repeated structures.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Learn slow improvement, central break d4, and when to expand on the kingside.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="evans gambit white 1.e4 e5 2.nf3 nc6 3.bc4 bc5 4.b4 very good good medium-high aggressive / gambit excellent for learning development, initiative, open files, and compensation, but requires tactical care. use as an attacking supplement, not as your only understanding of the italian. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Evans Gambit</h3>
+          <div class="moves">1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Aggressive / gambit</span>
+      </div>
+      <p>Excellent for learning development, initiative, open files, and compensation, but requires tactical care.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Use as an attacking supplement, not as your only understanding of the Italian.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended later" data-search="ruy lopez white 1.e4 e5 2.nf3 nc6 3.bb5 excellent good very high strategic / rich objectively elite and enormously instructive, but the theory tree is huge. learn one simple system and the basic ideas before studying deep main lines. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Ruy Lopez</h3>
+          <div class="moves">1.e4 e5 2.Nf3 Nc6 3.Bb5</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Very High</span>
+        <span><b>Character</b>Strategic / rich</span>
+      </div>
+      <p>Objectively elite and enormously instructive, but the theory tree is huge.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Learn one simple system and the basic ideas before studying deep main lines.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="scotch game white 1.e4 e5 2.nf3 nc6 3.d4 excellent excellent medium open / direct a very good beginner-to-advanced opening. the center clarifies early and piece activity is easy to understand. great choice if you want less maneuvering and less theory than the ruy lopez. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Scotch Game</h3>
+          <div class="moves">1.e4 e5 2.Nf3 Nc6 3.d4</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Open / direct</span>
+      </div>
+      <p>A very good beginner-to-advanced opening. The center clarifies early and piece activity is easy to understand.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Great choice if you want less maneuvering and less theory than the Ruy Lopez.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="four knights game white 1.e4 e5 2.nf3 nc6 3.nc3 nf6 excellent excellent low-medium classical / calm teaches development and central play without forcing you into enormous theory. do not turn it into passive symmetry; learn when d4 and bb5 matter. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Four Knights Game</h3>
+          <div class="moves">1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Low-Medium</span>
+        <span><b>Character</b>Classical / calm</span>
+      </div>
+      <p>Teaches development and central play without forcing you into enormous theory.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Do not turn it into passive symmetry; learn when d4 and Bb5 matter.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="vienna game white 1.e4 e5 2.nc3 very good excellent medium flexible / attacking a practical opening with real strategic content and attacking chances. learn the difference between quiet vienna lines and vienna gambit structures. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Vienna Game</h3>
+          <div class="moves">1.e4 e5 2.Nc3</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Flexible / attacking</span>
+      </div>
+      <p>A practical opening with real strategic content and attacking chances.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Learn the difference between quiet Vienna lines and Vienna Gambit structures.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="king&#x27;s gambit white 1.e4 e5 2.f4 good medium high tactical / gambit fun and historically important. teaches initiative, development, open files, and compensation—but punishes sloppy king safety. excellent side weapon. beginners should understand why the pawn is sacrificed, not just memorize traps. optional">
+      <div class="opening-top">
+        <div>
+          <h3>King&#x27;s Gambit</h3>
+          <div class="moves">1.e4 e5 2.f4</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Tactical / gambit</span>
+      </div>
+      <p>Fun and historically important. Teaches initiative, development, open files, and compensation—but punishes sloppy king safety.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Excellent side weapon. Beginners should understand why the pawn is sacrificed, not just memorize traps.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Good" data-search="bishop&#x27;s opening white 1.e4 e5 2.bc4 very good good low-medium flexible sound and easy to start, with many transpositions into italian/vienna structures. useful if you like flexible move orders. good">
+      <div class="opening-top">
+        <div>
+          <h3>Bishop&#x27;s Opening</h3>
+          <div class="moves">1.e4 e5 2.Bc4</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Low-Medium</span>
+        <span><b>Character</b>Flexible</span>
+      </div>
+      <p>Sound and easy to start, with many transpositions into Italian/Vienna structures.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Useful if you like flexible move orders.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="ponziani opening white 1.e4 e5 2.nf3 nc6 3.c3 good good medium central / tricky playable and practical, but black has several equalizing ideas if prepared. fine surprise choice; learn the central d4 plan rather than traps. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Ponziani Opening</h3>
+          <div class="moves">1.e4 e5 2.Nf3 Nc6 3.c3</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Central / tricky</span>
+      </div>
+      <p>Playable and practical, but Black has several equalizing ideas if prepared.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Fine surprise choice; learn the central d4 plan rather than traps.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="danish gambit white 1.e4 e5 2.d4 exd4 3.c3 playable medium medium tactical / gambit very instructive for development and initiative, but objectively black can neutralize it. use for tactical training and fun, not because you expect an opening advantage. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Danish Gambit</h3>
+          <div class="moves">1.e4 e5 2.d4 exd4 3.c3</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Playable</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Tactical / gambit</span>
+      </div>
+      <p>Very instructive for development and initiative, but objectively Black can neutralize it.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Use for tactical training and fun, not because you expect an opening advantage.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="center game white 1.e4 e5 2.d4 exd4 3.qxd4 playable medium low-medium direct easy to understand but brings the queen out early and gives black easy development with tempo. playable, but the scotch usually teaches similar ideas with fewer concessions. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Center Game</h3>
+          <div class="moves">1.e4 e5 2.d4 exd4 3.Qxd4</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Playable</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Low-Medium</span>
+        <span><b>Character</b>Direct</span>
+      </div>
+      <p>Easy to understand but brings the queen out early and gives Black easy development with tempo.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Playable, but the Scotch usually teaches similar ideas with fewer concessions.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended later" data-search="open sicilian white 1.e4 c5 2.nf3 then 3.d4 excellent medium very high open / tactical the most principled challenge to the sicilian and one of the richest areas in chess. great learning value, but pick one response to each major sicilian instead of trying to know everything. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Open Sicilian</h3>
+          <div class="moves">1.e4 c5 2.Nf3 then 3.d4</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Very High</span>
+        <span><b>Character</b>Open / tactical</span>
+      </div>
+      <p>The most principled challenge to the Sicilian and one of the richest areas in chess.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Great learning value, but pick one response to each major Sicilian instead of trying to know everything.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="alapin sicilian white 1.e4 c5 2.c3 very good excellent medium central / practical a strong practical anti-sicilian with clear d4 goals and less theory than the open sicilian. excellent first repertoire choice against the sicilian. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Alapin Sicilian</h3>
+          <div class="moves">1.e4 c5 2.c3</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Central / practical</span>
+      </div>
+      <p>A strong practical anti-Sicilian with clear d4 goals and less theory than the Open Sicilian.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Excellent first repertoire choice against the Sicilian.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Good" data-search="closed sicilian white 1.e4 c5 2.nc3 very good good medium closed / attacking leads to slower kingside plans and maneuvering. good if you enjoy closed attacks, but learn central breaks rather than autopilot f4-g4. good">
+      <div class="opening-top">
+        <div>
+          <h3>Closed Sicilian</h3>
+          <div class="moves">1.e4 c5 2.Nc3</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Closed / attacking</span>
+      </div>
+      <p>Leads to slower kingside plans and maneuvering.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good if you enjoy closed attacks, but learn central breaks rather than autopilot f4-g4.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Good" data-search="grand prix attack white 1.e4 c5 2.nc3 and f4 good good medium attacking simple attacking plans make it attractive below 1500, but black has solid defensive setups. good practical weapon; do not assume every game is a kingside mate. good">
+      <div class="opening-top">
+        <div>
+          <h3>Grand Prix Attack</h3>
+          <div class="moves">1.e4 c5 2.Nc3 and f4</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Attacking</span>
+      </div>
+      <p>Simple attacking plans make it attractive below 1500, but Black has solid defensive setups.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good practical weapon; do not assume every game is a kingside mate.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="smith-morra gambit white 1.e4 c5 2.d4 cxd4 3.c3 good good high tactical / gambit very instructive for initiative and development. strong practical weapon, though black can return material and equalize. learn positional compensation too, not only traps. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Smith-Morra Gambit</h3>
+          <div class="moves">1.e4 c5 2.d4 cxd4 3.c3</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Tactical / gambit</span>
+      </div>
+      <p>Very instructive for initiative and development. Strong practical weapon, though Black can return material and equalize.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Learn positional compensation too, not only traps.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="french advance white 1.e4 e6 2.d4 d5 3.e5 excellent good medium-high closed / strategic teaches pawn chains, space, attacking the base of a chain, and opposite-wing play. very educational if you are willing to study typical plans. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>French Advance</h3>
+          <div class="moves">1.e4 e6 2.d4 d5 3.e5</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Closed / strategic</span>
+      </div>
+      <p>Teaches pawn chains, space, attacking the base of a chain, and opposite-wing play.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Very educational if you are willing to study typical plans.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended later" data-search="french tarrasch white 1.e4 e6 2.d4 d5 3.nd2 excellent good high strategic / flexible very strong and avoids some winawer complexity, but still has substantial theory. good long-term choice once basic french structures make sense. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>French Tarrasch</h3>
+          <div class="moves">1.e4 e6 2.d4 d5 3.Nd2</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Strategic / flexible</span>
+      </div>
+      <p>Very strong and avoids some Winawer complexity, but still has substantial theory.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good long-term choice once basic French structures make sense.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Good" data-search="french exchange white 1.e4 e6 2.d4 d5 3.exd5 good excellent low simple / symmetrical easy to play, but can become dry if white has no plan. fine for beginners, but learn active piece placement rather than trading everything. good">
+      <div class="opening-top">
+        <div>
+          <h3>French Exchange</h3>
+          <div class="moves">1.e4 e6 2.d4 d5 3.exd5</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Low</span>
+        <span><b>Character</b>Simple / symmetrical</span>
+      </div>
+      <p>Easy to play, but can become dry if White has no plan.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Fine for beginners, but learn active piece placement rather than trading everything.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="caro-kann advance white 1.e4 c6 2.d4 d5 3.e5 excellent good medium-high space / strategic strong and instructive. teaches space, pawn chains, and attacking black&#x27;s light bishop setup. great if you enjoy gaining space and learning plans. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Caro-Kann Advance</h3>
+          <div class="moves">1.e4 c6 2.d4 d5 3.e5</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Space / strategic</span>
+      </div>
+      <p>Strong and instructive. Teaches space, pawn chains, and attacking Black&#x27;s light bishop setup.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Great if you enjoy gaining space and learning plans.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended later" data-search="caro-kann classical white 1.e4 c6 2.d4 d5 3.nc3/3.nd2 excellent good high classical / tactical sound and principled, but some lines are theory-heavy. good long-term repertoire after fundamentals. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Caro-Kann Classical</h3>
+          <div class="moves">1.e4 c6 2.d4 d5 3.Nc3/3.Nd2</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Classical / tactical</span>
+      </div>
+      <p>Sound and principled, but some lines are theory-heavy.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good long-term repertoire after fundamentals.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="panov attack white 1.e4 c6 2.d4 d5 3.exd5 cxd5 4.c4 excellent good medium-high iqp / active excellent learning opening because it teaches isolated queen&#x27;s pawn positions and active piece play. very useful for chess education beyond the caro-kann itself. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Panov Attack</h3>
+          <div class="moves">1.e4 c6 2.d4 d5 3.exd5 cxd5 4.c4</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>IQP / active</span>
+      </div>
+      <p>Excellent learning opening because it teaches isolated queen&#x27;s pawn positions and active piece play.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Very useful for chess education beyond the Caro-Kann itself.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="queen&#x27;s gambit white 1.d4 d5 2.c4 excellent excellent high strategic / universal one of the best openings ever played. teaches pawn tension, structures, minority attacks, iqp positions, and central breaks. beginners can absolutely learn it if they focus on structures instead of memorizing dozens of branches. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Queen&#x27;s Gambit</h3>
+          <div class="moves">1.d4 d5 2.c4</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Strategic / universal</span>
+      </div>
+      <p>One of the best openings ever played. Teaches pawn tension, structures, minority attacks, IQP positions, and central breaks.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Beginners can absolutely learn it if they focus on structures instead of memorizing dozens of branches.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended" data-search="queen&#x27;s gambit exchange white qgd with cxd5 exd5 excellent excellent medium carlsbad / strategic a superb teaching structure. minority attack and f3-e4 plans repeat for life. one of the best ways to learn serious positional chess. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Queen&#x27;s Gambit Exchange</h3>
+          <div class="moves">QGD with cxd5 exd5</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Carlsbad / strategic</span>
+      </div>
+      <p>A superb teaching structure. Minority attack and f3-e4 plans repeat for life.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> One of the best ways to learn serious positional chess.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended with caution" data-search="london system white 1.d4 and bf4 very good excellent low-medium system / solid easy to get a playable position and good for learning development, but can encourage autopilot if taught badly. use it to learn plans, not to avoid thinking about black&#x27;s moves. recommended with caution">
+      <div class="opening-top">
+        <div>
+          <h3>London System</h3>
+          <div class="moves">1.d4 and Bf4</div>
+        </div>
+        <span class="verdict recommended-with-caution">Recommended with caution</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Low-Medium</span>
+        <span><b>Character</b>System / solid</span>
+      </div>
+      <p>Easy to get a playable position and good for learning development, but can encourage autopilot if taught badly.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Use it to learn plans, not to avoid thinking about Black&#x27;s moves.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="jobava london white 1.d4 d5 2.nc3 nf6 3.bf4 good good medium aggressive system more tactical than the normal london and contains useful attacking patterns. fine practical weapon, but less universal than the standard london. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Jobava London</h3>
+          <div class="moves">1.d4 d5 2.Nc3 Nf6 3.Bf4</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Aggressive system</span>
+      </div>
+      <p>More tactical than the normal London and contains useful attacking patterns.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Fine practical weapon, but less universal than the standard London.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Good" data-search="colle system white d4, nf3, e3, bd3, o-o good excellent low system / solid very easy to learn and teaches a thematic e4 break. safe beginner choice, though it can become passive if black neutralizes e4. good">
+      <div class="opening-top">
+        <div>
+          <h3>Colle System</h3>
+          <div class="moves">d4, Nf3, e3, Bd3, O-O</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Low</span>
+        <span><b>Character</b>System / solid</span>
+      </div>
+      <p>Very easy to learn and teaches a thematic e4 break.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Safe beginner choice, though it can become passive if Black neutralizes e4.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="stonewall attack white d4/e3/f4/c3 playable good low closed / attacking very clear plans and easy piece placement, but creates permanent dark-square weaknesses. good for learning a plan; eventually learn more flexible pawn structures too. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Stonewall Attack</h3>
+          <div class="moves">d4/e3/f4/c3</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Playable</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Low</span>
+        <span><b>Character</b>Closed / attacking</span>
+      </div>
+      <p>Very clear plans and easy piece placement, but creates permanent dark-square weaknesses.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good for learning a plan; eventually learn more flexible pawn structures too.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended later" data-search="catalan white d4/c4/g3/bg2 excellent medium very high strategic / positional elite opening with deep long-term pressure. very strong, but subtle and theory-heavy. better after you understand queen&#x27;s gambit structures. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Catalan</h3>
+          <div class="moves">d4/c4/g3/Bg2</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Very High</span>
+        <span><b>Character</b>Strategic / positional</span>
+      </div>
+      <p>Elite opening with deep long-term pressure. Very strong, but subtle and theory-heavy.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Better after you understand Queen&#x27;s Gambit structures.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Good" data-search="king&#x27;s indian attack white nf3/g3/bg2/d3/e4 very good good medium system / attacking flexible and useful, especially against ...e6/...d5 structures. good for learning closed-center attacks. do not play the same setup blindly against every black structure. good">
+      <div class="opening-top">
+        <div>
+          <h3>King&#x27;s Indian Attack</h3>
+          <div class="moves">Nf3/g3/Bg2/d3/e4</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>System / attacking</span>
+      </div>
+      <p>Flexible and useful, especially against ...e6/...d5 structures. Good for learning closed-center attacks.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Do not play the same setup blindly against every Black structure.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended later" data-search="réti opening white 1.nf3 with c4/g3 excellent medium high hypermodern / flexible very strong and flexible, but transpositions require broad positional knowledge. better once you understand queen&#x27;s gambit and english structures. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Réti Opening</h3>
+          <div class="moves">1.Nf3 with c4/g3</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Hypermodern / flexible</span>
+      </div>
+      <p>Very strong and flexible, but transpositions require broad positional knowledge.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Better once you understand Queen&#x27;s Gambit and English structures.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Recommended later" data-search="english opening white 1.c4 excellent medium very high positional / flexible top-class opening with many transpositions and strategic structures. excellent long-term opening, but less straightforward for a first repertoire. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>English Opening</h3>
+          <div class="moves">1.c4</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Very High</span>
+        <span><b>Character</b>Positional / flexible</span>
+      </div>
+      <p>Top-class opening with many transpositions and strategic structures.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Excellent long-term opening, but less straightforward for a first repertoire.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Good" data-search="trompowsky attack white 1.d4 nf6 2.bg5 very good good medium practical / unbalanced sound and creates unusual positions quickly with manageable theory. good choice if you want to avoid main indian-defense theory. good">
+      <div class="opening-top">
+        <div>
+          <h3>Trompowsky Attack</h3>
+          <div class="moves">1.d4 Nf6 2.Bg5</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Practical / unbalanced</span>
+      </div>
+      <p>Sound and creates unusual positions quickly with manageable theory.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good choice if you want to avoid main Indian-defense theory.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="blackmar-diemer gambit white 1.d4 d5 2.e4 dubious-playable medium medium tactical / gambit fun and dangerous at club level, but black can defend and keep an objective advantage. use for fun/tactics, not as proof that opening principles do not matter. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Blackmar-Diemer Gambit</h3>
+          <div class="moves">1.d4 d5 2.e4</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Dubious-Playable</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Tactical / gambit</span>
+      </div>
+      <p>Fun and dangerous at club level, but Black can defend and keep an objective advantage.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Use for fun/tactics, not as proof that opening principles do not matter.</div>
+    </article>
+    <article class="opening-card" data-side="White" data-tag="Optional" data-search="bird opening white 1.f4 playable medium medium dutch reversed playable and strategically coherent, but weakens the king and gives black several strong replies. better as a side opening after learning standard center openings. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Bird Opening</h3>
+          <div class="moves">1.f4</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Playable</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Dutch reversed</span>
+      </div>
+      <p>Playable and strategically coherent, but weakens the king and gives Black several strong replies.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Better as a side opening after learning standard center openings.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Recommended" data-search="1...e5 black vs 1.e4 1.e4 e5 excellent excellent high classical / open probably the best educational defense to 1.e4. teaches development, center, tactics, and many fundamental structures. you do not need to know every ruy lopez line; learn one response to italian, scotch, vienna, and ruy. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>1...e5</h3>
+          <div class="moves">1.e4 e5</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Classical / open</span>
+      </div>
+      <p>Probably the best educational defense to 1.e4. Teaches development, center, tactics, and many fundamental structures.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> You do not need to know every Ruy Lopez line; learn one response to Italian, Scotch, Vienna, and Ruy.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Recommended" data-search="petrov defense black vs 1.e4 1.e4 e5 2.nf3 nf6 excellent good medium-high solid / active very sound and teaches central counterattack instead of passive defense. good long-term choice; learn why ...nxe4 works rather than memorizing traps. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Petrov Defense</h3>
+          <div class="moves">1.e4 e5 2.Nf3 Nf6</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Solid / active</span>
+      </div>
+      <p>Very sound and teaches central counterattack instead of passive defense.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good long-term choice; learn why ...Nxe4 works rather than memorizing traps.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Recommended later" data-search="sicilian defense black vs 1.e4 1.e4 c5 excellent medium very high unbalanced / dynamic objectively elite and creates winning chances, but the theory tree is enormous. beginners can play it, but should choose one sicilian family and accept that opponents will use many anti-sicilians. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Sicilian Defense</h3>
+          <div class="moves">1.e4 c5</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Very High</span>
+        <span><b>Character</b>Unbalanced / dynamic</span>
+      </div>
+      <p>Objectively elite and creates winning chances, but the theory tree is enormous.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Beginners can play it, but should choose one Sicilian family and accept that opponents will use many anti-Sicilians.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Recommended" data-search="caro-kann defense black vs 1.e4 1.e4 c6 excellent excellent medium-high solid / strategic one of the best beginner-to-advanced defenses. clear structure, good endgames, and sound development. excellent choice if you want one defense to stick with for years. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Caro-Kann Defense</h3>
+          <div class="moves">1.e4 c6</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Solid / strategic</span>
+      </div>
+      <p>One of the best beginner-to-advanced defenses. Clear structure, good endgames, and sound development.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Excellent choice if you want one defense to stick with for years.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Recommended" data-search="french defense black vs 1.e4 1.e4 e6 excellent good medium-high closed / counterattacking very sound and teaches pawn chains and counterplay against white&#x27;s center. good for beginners who do not mind a temporarily restricted light bishop. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>French Defense</h3>
+          <div class="moves">1.e4 e6</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Closed / counterattacking</span>
+      </div>
+      <p>Very sound and teaches pawn chains and counterplay against White&#x27;s center.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good for beginners who do not mind a temporarily restricted light bishop.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Good" data-search="scandinavian defense black vs 1.e4 1.e4 d5 good excellent low-medium direct / practical immediately challenges e4 and gives a clear structure. slightly less ambitious than top defenses but very playable. excellent low-theory practical choice if you understand queen-tempo issues. good">
+      <div class="opening-top">
+        <div>
+          <h3>Scandinavian Defense</h3>
+          <div class="moves">1.e4 d5</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Low-Medium</span>
+        <span><b>Character</b>Direct / practical</span>
+      </div>
+      <p>Immediately challenges e4 and gives a clear structure. Slightly less ambitious than top defenses but very playable.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Excellent low-theory practical choice if you understand queen-tempo issues.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Recommended later" data-search="pirc defense black vs 1.e4 1.e4 d6 2.d4 nf6 3.nc3 g6 excellent medium-low high hypermodern / counterattack sound but gives white a large center and requires knowing when to strike it. not ideal if you still struggle when the opponent has more space. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Pirc Defense</h3>
+          <div class="moves">1.e4 d6 2.d4 Nf6 3.Nc3 g6</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium-Low</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Hypermodern / counterattack</span>
+      </div>
+      <p>Sound but gives White a large center and requires knowing when to strike it.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Not ideal if you still struggle when the opponent has more space.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Recommended later" data-search="modern defense black vs 1.e4 1.e4 g6 good-very good low-medium high hypermodern / flexible playable and flexible, but white gets lots of space and black must understand counterplay. better after learning classical center principles. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Modern Defense</h3>
+          <div class="moves">1.e4 g6</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good-Very Good</span>
+        <span><b>Beginner fit</b>Low-Medium</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Hypermodern / flexible</span>
+      </div>
+      <p>Playable and flexible, but White gets lots of space and Black must understand counterplay.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Better after learning classical center principles.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Optional" data-search="alekhine defense black vs 1.e4 1.e4 nf6 good low-medium medium-high provocative / counterattack invites white to build a center and then attacks it. playable but strategically demanding. interesting side defense, not my first beginner recommendation. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Alekhine Defense</h3>
+          <div class="moves">1.e4 Nf6</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Low-Medium</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Provocative / counterattack</span>
+      </div>
+      <p>Invites White to build a center and then attacks it. Playable but strategically demanding.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Interesting side defense, not my first beginner recommendation.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.e4" data-tag="Optional" data-search="owen&#x27;s defense black vs 1.e4 1.e4 b6 playable low-medium medium hypermodern playable but concedes easy central space and can become passive. use as a surprise weapon, not because it avoids learning central chess. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Owen&#x27;s Defense</h3>
+          <div class="moves">1.e4 b6</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Playable</span>
+        <span><b>Beginner fit</b>Low-Medium</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Hypermodern</span>
+      </div>
+      <p>Playable but concedes easy central space and can become passive.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Use as a surprise weapon, not because it avoids learning central chess.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Recommended" data-search="queen&#x27;s gambit declined black vs 1.d4 1.d4 d5 2.c4 e6 excellent excellent high classical / strategic one of the best educational defenses in chess. teaches center, development, pawn structures, and freeing breaks. excellent long-term defense even if you begin with a simplified repertoire. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Queen&#x27;s Gambit Declined</h3>
+          <div class="moves">1.d4 d5 2.c4 e6</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Classical / strategic</span>
+      </div>
+      <p>One of the best educational defenses in chess. Teaches center, development, pawn structures, and freeing breaks.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Excellent long-term defense even if you begin with a simplified repertoire.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Recommended" data-search="slav defense black vs 1.d4 1.d4 d5 2.c4 c6 excellent excellent medium-high solid / active very sound, keeps the light bishop free, and creates understandable structures. excellent beginner-to-master defense. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Slav Defense</h3>
+          <div class="moves">1.d4 d5 2.c4 c6</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Excellent</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Solid / active</span>
+      </div>
+      <p>Very sound, keeps the light bishop free, and creates understandable structures.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Excellent beginner-to-master defense.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Recommended" data-search="queen&#x27;s gambit accepted black vs 1.d4 1.d4 d5 2.c4 dxc4 excellent good medium-high open / active sound and active. black gives up central presence temporarily rather than trying to keep the pawn forever. good if you like open positions and active development. recommended">
+      <div class="opening-top">
+        <div>
+          <h3>Queen&#x27;s Gambit Accepted</h3>
+          <div class="moves">1.d4 d5 2.c4 dxc4</div>
+        </div>
+        <span class="verdict recommended">Recommended</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Open / active</span>
+      </div>
+      <p>Sound and active. Black gives up central presence temporarily rather than trying to keep the pawn forever.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good if you like open positions and active development.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Recommended later" data-search="king&#x27;s indian defense black vs 1.d4 1.d4 nf6 2.c4 g6 3.nc3 bg7 4.e4 d6 excellent medium-low very high dynamic / attacking elite, exciting, and strategically rich—but black often accepts less space and must know counterplay precisely. great long-term opening; harder as a first defense for someone who dislikes cramped positions. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>King&#x27;s Indian Defense</h3>
+          <div class="moves">1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium-Low</span>
+        <span><b>Theory load</b>Very High</span>
+        <span><b>Character</b>Dynamic / attacking</span>
+      </div>
+      <p>Elite, exciting, and strategically rich—but Black often accepts less space and must know counterplay precisely.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Great long-term opening; harder as a first defense for someone who dislikes cramped positions.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Recommended later" data-search="nimzo-indian defense black vs 1.d4 1.d4 nf6 2.c4 e6 3.nc3 bb4 excellent medium very high strategic / dynamic one of the strongest defenses in chess. teaches bishop pair vs structure, center control, and dynamic imbalances. wonderful opening, but theory and structures are extensive. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Nimzo-Indian Defense</h3>
+          <div class="moves">1.d4 Nf6 2.c4 e6 3.Nc3 Bb4</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Very High</span>
+        <span><b>Character</b>Strategic / dynamic</span>
+      </div>
+      <p>One of the strongest defenses in chess. Teaches bishop pair vs structure, center control, and dynamic imbalances.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Wonderful opening, but theory and structures are extensive.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Recommended later" data-search="queen&#x27;s indian defense black vs 1.d4 1.d4 nf6 2.c4 e6 3.nf3 b6 excellent medium high positional / flexible very sound and strategically rich, but subtle. better after basic qgd/nimzo concepts are familiar. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Queen&#x27;s Indian Defense</h3>
+          <div class="moves">1.d4 Nf6 2.c4 e6 3.Nf3 b6</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Positional / flexible</span>
+      </div>
+      <p>Very sound and strategically rich, but subtle.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Better after basic QGD/Nimzo concepts are familiar.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Advanced" data-search="grünfeld defense black vs 1.d4 1.d4 nf6 2.c4 g6 3.nc3 d5 excellent low-medium very high dynamic / theoretical top-tier defense, but extremely theory-heavy and tactically exact. black allows a center then attacks it immediately. not a beginner-friendly first defense unless you love theory and calculation. advanced">
+      <div class="opening-top">
+        <div>
+          <h3>Grünfeld Defense</h3>
+          <div class="moves">1.d4 Nf6 2.c4 g6 3.Nc3 d5</div>
+        </div>
+        <span class="verdict advanced">Advanced</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Excellent</span>
+        <span><b>Beginner fit</b>Low-Medium</span>
+        <span><b>Theory load</b>Very High</span>
+        <span><b>Character</b>Dynamic / theoretical</span>
+      </div>
+      <p>Top-tier defense, but extremely theory-heavy and tactically exact. Black allows a center then attacks it immediately.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Not a beginner-friendly first defense unless you love theory and calculation.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Good" data-search="dutch defense black vs 1.d4 1.d4 f5 good-very good good medium-high aggressive / unbalanced creates clear kingside ambitions and avoids many queen&#x27;s gambit structures. good practical club weapon, but weakens the king and e6/e5 squares. good">
+      <div class="opening-top">
+        <div>
+          <h3>Dutch Defense</h3>
+          <div class="moves">1.d4 f5</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good-Very Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Aggressive / unbalanced</span>
+      </div>
+      <p>Creates clear kingside ambitions and avoids many Queen&#x27;s Gambit structures.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good practical club weapon, but weakens the king and e6/e5 squares.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Good" data-search="stonewall dutch black vs 1.d4 ...f5 ...e6 ...d5 ...c6 good good medium closed / attacking very clear structure and plans, but creates a permanently weak e5 square and a difficult light bishop. good plan-based opening if you also learn how to improve the bad bishop. good">
+      <div class="opening-top">
+        <div>
+          <h3>Stonewall Dutch</h3>
+          <div class="moves">...f5 ...e6 ...d5 ...c6</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Closed / attacking</span>
+      </div>
+      <p>Very clear structure and plans, but creates a permanently weak e5 square and a difficult light bishop.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good plan-based opening if you also learn how to improve the bad bishop.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Recommended later" data-search="modern benoni black vs 1.d4 1.d4 nf6 2.c4 c5 3.d5 e6 very good low-medium high dynamic / counterattack exciting and strategically rich, but black accepts space disadvantage and must generate counterplay. better after you understand pawn breaks and playing with less space. recommended later">
+      <div class="opening-top">
+        <div>
+          <h3>Modern Benoni</h3>
+          <div class="moves">1.d4 Nf6 2.c4 c5 3.d5 e6</div>
+        </div>
+        <span class="verdict recommended-later">Recommended later</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Low-Medium</span>
+        <span><b>Theory load</b>High</span>
+        <span><b>Character</b>Dynamic / counterattack</span>
+      </div>
+      <p>Exciting and strategically rich, but Black accepts space disadvantage and must generate counterplay.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Better after you understand pawn breaks and playing with less space.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Good" data-search="benko gambit black vs 1.d4 1.d4 nf6 2.c4 c5 3.d5 b5 very good medium medium-high positional gambit one of the most instructive gambits: black gives a pawn for long-term files, pressure, and piece activity. good learning opening if you understand compensation rather than traps. good">
+      <div class="opening-top">
+        <div>
+          <h3>Benko Gambit</h3>
+          <div class="moves">1.d4 Nf6 2.c4 c5 3.d5 b5</div>
+        </div>
+        <span class="verdict good">Good</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Very Good</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Medium-High</span>
+        <span><b>Character</b>Positional gambit</span>
+      </div>
+      <p>One of the most instructive gambits: Black gives a pawn for long-term files, pressure, and piece activity.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good learning opening if you understand compensation rather than traps.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Optional" data-search="budapest gambit black vs 1.d4 1.d4 nf6 2.c4 e5 good good medium active / gambit playable and practical, especially at club level, but white can obtain a stable edge with accurate play. fine surprise weapon; not the strongest foundation for a lifelong repertoire. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Budapest Gambit</h3>
+          <div class="moves">1.d4 Nf6 2.c4 e5</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Good</span>
+        <span><b>Beginner fit</b>Good</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Active / gambit</span>
+      </div>
+      <p>Playable and practical, especially at club level, but White can obtain a stable edge with accurate play.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Fine surprise weapon; not the strongest foundation for a lifelong repertoire.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs 1.d4" data-tag="Avoid as main" data-search="englund gambit black vs 1.d4 1.d4 e5 dubious low low-medium trap-based gambit can score quick wins against unprepared players, but objectively gives white too much for the pawn. poor choice for long-term improvement if your plan depends on traps. avoid as main">
+      <div class="opening-top">
+        <div>
+          <h3>Englund Gambit</h3>
+          <div class="moves">1.d4 e5</div>
+        </div>
+        <span class="verdict avoid-as-main">Avoid as main</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Dubious</span>
+        <span><b>Beginner fit</b>Low</span>
+        <span><b>Theory load</b>Low-Medium</span>
+        <span><b>Character</b>Trap-based gambit</span>
+      </div>
+      <p>Can score quick wins against unprepared players, but objectively gives White too much for the pawn.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Poor choice for long-term improvement if your plan depends on traps.</div>
+    </article>
+    <article class="opening-card" data-side="Black vs Queen&#x27;s Gambit" data-tag="Optional" data-search="albin countergambit black vs queen&#x27;s gambit 1.d4 d5 2.c4 e5 playable-good medium medium countergambit interesting and dangerous, with real central ideas, but white can obtain an edge with accurate play. good occasional weapon; learn the d4 wedge, not just the lasker trap. optional">
+      <div class="opening-top">
+        <div>
+          <h3>Albin Countergambit</h3>
+          <div class="moves">1.d4 d5 2.c4 e5</div>
+        </div>
+        <span class="verdict optional">Optional</span>
+      </div>
+      <div class="stats">
+        <span><b>General quality</b>Playable-Good</span>
+        <span><b>Beginner fit</b>Medium</span>
+        <span><b>Theory load</b>Medium</span>
+        <span><b>Character</b>Countergambit</span>
+      </div>
+      <p>Interesting and dangerous, with real central ideas, but White can obtain an edge with accurate play.</p>
+      <div class="field-note"><strong>Beginner field note:</strong> Good occasional weapon; learn the d4 wedge, not just the Lasker trap.</div>
+    </article></div>
+</div></section>
+
+<section id="traps"><div class="wrap">
+<h2>Openings and habits I would not build a beginner's entire chess identity around</h2>
+<div class="grid">
+<div class="panel"><h3>Pure trap openings</h3><p>If the opening becomes bad when the opponent knows one defensive move, it teaches you to hope for mistakes instead of creating good positions. Traps are useful knowledge; they are poor foundations.</p></div>
+<div class="panel"><h3>Openings chosen only because they avoid theory</h3><p>You cannot avoid chess. A “system” that reaches move 8 automatically can still leave you with a middlegame you do not understand.</p></div>
+<div class="panel"><h3>Constant repertoire switching</h3><p>Every loss makes the new opening look bad. If you switch immediately, you never reach the stage where recurring positions become familiar.</p></div>
+<div class="panel"><h3>Twenty-move memorization without plans</h3><p>At beginner level your opponent will often leave theory first. If you do not understand the position, your memorized advantage ends exactly when the real game begins.</p></div>
+</div>
+
+<div class="callout red">
+<strong>Avoid this cycle:</strong> lose → blame opening → watch a new opening video → memorize traps → win two games → meet someone prepared → lose → change opening again.
+</div>
+
+<h3>A much better cycle</h3>
+<ul class="checklist">
+<li>Choose one sound White repertoire.</li>
+<li>Choose one defense to 1.e4.</li>
+<li>Choose one defense to 1.d4.</li>
+<li>Play them for months, not days.</li>
+<li>Review your games.</li>
+<li>Add theory only where your games expose a gap.</li>
+<li>Study the resulting middlegames.</li>
+<li>Learn the typical endgames.</li>
+<li>Keep doing tactics.</li>
+<li>Learn basic rook and pawn endgames.</li>
+<li>Track recurring mistakes.</li>
+<li>Change an opening because you dislike the positions—not because you lost one game.</li>
+</ul>
+</div></section>
+
+<section><div class="wrap">
+<h2>The shortest answer you can give in a beginner forum</h2>
+<div class="callout">
+<strong>“Yes, learn an opening—but learn a small sound repertoire, not a giant book of moves. Stick with it long enough to learn the positions. Below 1500, opening knowledge should help you reach a playable middlegame with a plan; tactics, blunder prevention, calculation, endgames, and reviewing your own games still matter more than deep theory.”</strong>
+</div>
+</div></section>
+
+<section id="sources"><div class="wrap">
+<h2>Notes & sources</h2>
+<div class="source-box">
+<p>This page intentionally presents a middle position in the long-running beginner-opening debate. Current Chess.com beginner guidance says beginners should first learn opening principles, apply them in games, and also learn a few tournament openings. Its current beginner-opening article likewise says exact memorization is usually unnecessary but knowing common openings and plans is useful.</p>
+<p>The Daniel Naroditsky point summarized here is based on his widely discussed advice that beginners can benefit from learning a good opening and staying with it rather than continually switching; a Chess.com forum discussion links the relevant Naroditsky video at <a href="https://www.youtube.com/watch?v=uuDQbMlXeDQ&t=1279s">this timestamped YouTube link</a>.</p>
+<p>Further reading: <a href="https://www.chess.com/article/view/study-plan-for-beginners-the-opening">Chess.com Beginner Study Plan: The Opening</a> · <a href="https://www.chess.com/article/view/the-best-chess-openings-for-beginners">Chess.com: Best Chess Openings for Beginners</a>.</p>
+<p>Opening ratings on this page are instructional judgments, not engine scores. “Beginner-friendly” is especially subjective: the best opening is often the one whose resulting positions you enjoy enough to play repeatedly and analyze.</p>
+</div>
+</div></section>
+
+<footer>
+<div class="wrap"><strong>AI-made and free. Intended for learning and sharing, not for sale.</strong><br>Chess Combat School beginner reference sheet.</div>
+</footer>
+
+<script>
+const buttons=[...document.querySelectorAll('[data-filter]')];
+const cards=[...document.querySelectorAll('.opening-card')];
+const search=document.getElementById('search');
+let active='All';
+function apply(){
+  const q=search.value.trim().toLowerCase();
+  cards.forEach(card=>{
+    const side=card.dataset.side;
+    const sideOk=active==='All'||active===side||
+      (active==='White'&&side==='White')||
+      (active==='Black vs 1.e4'&&side==='Black vs 1.e4')||
+      (active==='Black vs 1.d4'&&side==='Black vs 1.d4');
+    const qOk=!q||card.dataset.search.includes(q);
+    card.style.display=(sideOk&&qOk)?'block':'none';
+  });
+}
+buttons.forEach(b=>b.addEventListener('click',()=>{
+  active=b.dataset.filter;
+  buttons.forEach(x=>x.classList.toggle('active',x===b));
+  apply();
+}));
+search.addEventListener('input',apply);
+</script>
+</body>
+</html>

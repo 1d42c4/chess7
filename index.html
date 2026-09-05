@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chess Combat School — Free AI-Made Chess Training</title>
+<meta name="description" content="Free AI-made chess training with direct field-manual lessons, drills, combat checks and opening courses.">
+<style>
+:root{--bg:#242321;--panel:#312e2b;--soft:#3b3835;--text:#f3f3f3;--muted:#b9b9b9;--accent:#81b64c;--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.55}
+a{color:#b8dd97}.wrap{width:min(1180px,94vw);margin:auto}
+header{background:linear-gradient(180deg,#312f2c,#252421);border-bottom:1px solid var(--line)}.hero{padding:64px 0 52px}
+.kicker{text-transform:uppercase;letter-spacing:.14em;color:#a8d47f;font-size:12px;font-weight:900}
+h1{font-size:clamp(42px,7vw,76px);line-height:.98;margin:10px 0 18px;max-width:940px}.hero p{font-size:clamp(17px,2vw,21px);color:#d5d5d5;max-width:890px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.badge{background:#3a3734;border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:#ddd;font-size:13px}
+nav{border-bottom:1px solid var(--line);background:#292825}nav .wrap{display:flex;gap:18px;padding:13px 0;overflow:auto;white-space:nowrap}nav a{text-decoration:none;font-weight:800;color:#ddd}
+main{padding:38px 0 60px}.section-head h2{font-size:clamp(28px,4vw,42px);margin-bottom:6px}.section-head p{color:var(--muted);max-width:850px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px;margin-top:22px}
+.course{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;min-height:260px}
+.course .meta{display:flex;gap:7px;flex-wrap:wrap}.course .meta span{background:#282725;border-radius:999px;padding:4px 8px;font-size:11px;color:#ccc;text-transform:uppercase;font-weight:850;letter-spacing:.05em}
+.course h2{font-size:24px;margin:14px 0 7px}.course p{color:#d4d4d4;flex:1}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.actions a{text-decoration:none;border:1px solid var(--line);padding:9px 12px;border-radius:7px;font-weight:800;color:#eee}.actions .primary{background:var(--accent);color:#17210f;border-color:var(--accent)}
+.callout{background:#293226;border-left:5px solid var(--accent);padding:18px 20px;border-radius:8px;margin:32px 0}.callout h2{margin-top:0}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:16px}.tool{background:var(--panel);padding:17px;border-radius:9px;border:1px solid var(--line)}.tool h3{margin-top:0}
+footer{border-top:1px solid var(--line);padding:28px 0 42px;color:#999;text-align:center}
+</style>
+</head><body>
+<header><div class="wrap hero">
+<div class="kicker">Direct training • no filler • free</div>
+<h1>Chess Combat School</h1>
+<p>AI-made chess courses built like field manuals: recognize the position, identify the threat, know the pawn break, choose a plan, and practice until the decision becomes automatic.</p>
+<div class="badges"><span class="badge">1,075 field-manual lessons</span><span class="badge">AI-made</span><span class="badge">Free</span><span class="badge">Offline-friendly HTML</span><span class="badge">Not for sale</span></div>
+</div></header>
+<nav><div class="wrap"><a href="#courses">Courses</a><a href="guides/beginner-chess-openings.html">Beginner Opening Guide</a><a href="downloads/index.html">Downloads</a><a href="legacy/index.html">Legacy</a><a href="https://github.com/aileda/Chess-Combat-School">GitHub Repository</a></div></nav>
+<main class="wrap">
+<section id="courses"><div class="section-head"><h2>Opening Field Manuals</h2><p>The openings currently represented are the ones being studied seriously. The goal is not to collect openings—it is to build enough understanding to actually fight from them.</p></div>
+<div class="grid">
+    <article class="course">
+      <div class="meta"><span>Black + White</span><span>200 lessons</span></div>
+      <h2>Hippopotamus</h2>
+      <p>Compact formation, move-order flexibility, central breaks, opponent triggers, and when to abandon the shell.</p>
+      <div class="actions"><a class="primary" href="courses/hippo/index.html">Study course</a><a href="downloads/hippo-ai-field-manual-v2.zip">Download ZIP</a></div>
+    </article>
+    <article class="course">
+      <div class="meta"><span>Black + White</span><span>220 lessons</span></div>
+      <h2>King&#x27;s Indian Defense</h2>
+      <p>Classical/Mar del Plata, Bayonet, Sämisch, Four Pawns, Fianchetto systems, transformations, tactics and endgames.</p>
+      <div class="actions"><a class="primary" href="courses/kings-indian-defense/index.html">Study course</a><a href="downloads/kings-indian-ai-field-manual.zip">Download ZIP</a></div>
+    </article>
+    <article class="course">
+      <div class="meta"><span>White</span><span>100 lessons</span></div>
+      <h2>King&#x27;s Indian Attack</h2>
+      <p>A flexible White system taught by structure: e5 wedge, French/Sicilian/Caro setups, attacks and central transformations.</p>
+      <div class="actions"><a class="primary" href="courses/kings-indian-attack/index.html">Study course</a><a href="downloads/kings-indian-attack-100-lessons.zip">Download ZIP</a></div>
+    </article>
+    <article class="course">
+      <div class="meta"><span>White</span><span>160 lessons</span></div>
+      <h2>King&#x27;s Gambit</h2>
+      <p>A practical 3.Nf3 backbone, major accepted/declined defenses, tactical geometry, compensation and romantic-sacrifice laboratory.</p>
+      <div class="actions"><a class="primary" href="courses/kings-gambit/index.html">Study course</a><a href="downloads/kings-gambit-white-field-manual-160-lessons.zip">Download ZIP</a></div>
+    </article>
+    <article class="course">
+      <div class="meta"><span>White</span><span>255 lessons</span></div>
+      <h2>1.d4 + 2.c4 Repertoire</h2>
+      <p>Ground-up Queen&#x27;s Gambit core plus Slav, Semi-Slav, QGA, Indian defenses, Grünfeld, KID, Benoni, Dutch and more.</p>
+      <div class="actions"><a class="primary" href="courses/d4-c4-white/index.html">Study course</a><a href="downloads/d4-c4-white-field-manual-255-lessons.zip">Download ZIP</a></div>
+    </article>
+    <article class="course">
+      <div class="meta"><span>Black</span><span>140 lessons</span></div>
+      <h2>Scandinavian Defense</h2>
+      <p>Main 2...Qxd5 / ...Qa5 repertoire, queen-retreat discipline, central breaks, 2...Nf6, Portuguese and Icelandic literacy.</p>
+      <div class="actions"><a class="primary" href="courses/scandinavian-defense/index.html">Study course</a><a href="downloads/scandinavian-defense-black-field-manual-140-lessons.zip">Download ZIP</a></div>
+    </article>
+    <article class="course">
+      <div class="meta"><span>Black + White</span><span>Separate AI course</span></div>
+      <h2>Grok Hippo Course</h2>
+      <p>A separate Grok-generated Hippopotamus course with its own Black and White lesson collections, preserved alongside the newer Hippo field manuals.</p>
+      <div class="actions"><a class="primary" href="courses/grok-hippo/index.html">Study course</a></div>
+    </article>
+</div></section>
+
+<div class="callout"><h2>New to opening study?</h2><p>The beginner guide covers when opening study becomes useful, how much theory is enough below roughly 1500, why sticking with one sound repertoire builds pattern recognition, and how 60 popular openings compare for beginner suitability.</p><div class="actions"><a class="primary" href="guides/beginner-chess-openings.html">Open Beginner's Field Guide</a></div></div>
+
+<section><div class="section-head"><h2>How to use the school</h2></div>
+<div class="tools">
+<div class="tool"><h3>1. Study small blocks</h3><p>Do a few lessons at a time. Diagnose the board before revealing the answer.</p></div>
+<div class="tool"><h3>2. Play real games</h3><p>Use the opening and notice the first position where you no longer know the plan.</p></div>
+<div class="tool"><h3>3. After-action review</h3><p>Return to the relevant lesson. The GitHub repository includes <strong>STUDY_LOG.md</strong> and <strong>ERRATA.md</strong> for personal review and corrections.</p></div>
+<div class="tool"><h3>4. Verify concrete theory</h3><p>AI is powerful but not infallible. For serious tournament preparation, verify forcing lines with a current engine/database.</p></div>
+</div></section>
+</main>
+<footer><div class="wrap"><strong>AI-made. Free. Built for learning. Not for sale.</strong><br>Chess Combat School</div></footer>
+</body></html>

@@ -1,0 +1,55 @@
+{
+  "side": "Black",
+  "lesson_count": 120,
+  "module_count": 12,
+  "modules": [
+    {
+      "name": "01 \u2014 Mission, Move Order & Break Selection",
+      "lessons": 10
+    },
+    {
+      "name": "02 \u2014 Classical Center & Structure",
+      "lessons": 10
+    },
+    {
+      "name": "03 \u2014 Mar del Plata: Conduct the Kingside Attack",
+      "lessons": 10
+    },
+    {
+      "name": "04 \u2014 Bayonet & Modern Classical",
+      "lessons": 10
+    },
+    {
+      "name": "05 \u2014 Petrosian & Gligoric",
+      "lessons": 10
+    },
+    {
+      "name": "06 \u2014 S\u00e4misch",
+      "lessons": 10
+    },
+    {
+      "name": "07 \u2014 Four Pawns, Averbakh & Makogonov",
+      "lessons": 10
+    },
+    {
+      "name": "08 \u2014 Fianchetto Systems",
+      "lessons": 10
+    },
+    {
+      "name": "09 \u2014 Side Systems & Move Orders",
+      "lessons": 10
+    },
+    {
+      "name": "10 \u2014 Tactical Combat Patterns",
+      "lessons": 10
+    },
+    {
+      "name": "11 \u2014 Conversion, Defense & Endgames",
+      "lessons": 10
+    },
+    {
+      "name": "12 \u2014 Repertoire Integration & Field Tests",
+      "lessons": 10
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+CHESS COMBAT SCHOOL — ORGANIZED GITHUB PAGES PACKAGE
+
+RECOMMENDED USE WITH YOUR EXISTING GITHUB REPOSITORY
+
+1. Install/authenticate Git and GitHub CLI.
+2. Clone your existing repository.
+3. Copy/extract the CONTENTS of this package into the cloned repository root.
+4. From the repository root run:
+
+   bash organize-existing-repo.sh
+
+   This preserves the older chess-opening-courses pages and the Grok Hippo ZIP
+   from your CURRENT repository, moving them into the new organized layout.
+
+5. Verify the site and review changes:
+   python3 tools/verify_site.py
+   git status
+
+6. Commit and push:
+   git add .
+   git commit -m "Organize courses and prepare GitHub Pages"
+   git push
+
+7. In GitHub:
+   Settings -> Pages -> Deploy from a branch -> main -> /(root) -> Save
+
+The root index.html is the GitHub Pages homepage.
+The .nojekyll file tells GitHub Pages to serve the static HTML directly.
+
+IMPORTANT:
+This package contains all modern field-manual courses generated in this chat,
+including the Scandinavian course that was not yet in the repository.
+The execution environment could inspect but could not directly download the
+existing Grok binary archive or the four legacy HTML files. The migration script
+preserves them from your cloned live repository instead of deleting them.

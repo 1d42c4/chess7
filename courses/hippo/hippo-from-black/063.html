@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Black Hippo 063: Against the Reti</title><style>
+:root{--bg:#262522;--panel:#312e2b;--soft:#3a3734;--text:#f2f2f2;--muted:#bababa;--light:#eeeed2;--dark:#769656;--accent:#81b64c;--warning:#e8b04b;--hi:rgba(246,246,105,.56)}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif} a{color:#b6da94}
+.top{width:min(1180px,96vw);margin:0 auto;padding:18px 0 0;display:flex;justify-content:space-between;gap:12px;align-items:center}.top a{text-decoration:none;font-weight:750}.count{color:var(--muted);font-size:13px}
+.app{width:min(1180px,96vw);margin:0 auto;padding:14px 0 26px;display:grid;grid-template-columns:minmax(320px,680px) minmax(300px,1fr);gap:26px;align-items:start}
+.board{width:100%;aspect-ratio:1;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);border-radius:7px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.34);user-select:none}.square{position:relative;display:grid;place-items:center}.light{background:var(--light)}.dark{background:var(--dark)}.square.highlight:after{content:"";position:absolute;inset:0;background:var(--hi);pointer-events:none}.piece{z-index:2;width:86%;height:86%;display:grid;place-items:center;filter:drop-shadow(0 1.5px 1px rgba(0,0,0,.2))}.piece svg{width:100%;height:100%;display:block;overflow:visible}.piece.white svg{fill:#f2f2ec;stroke:#85857d;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}.piece.black svg{fill:#2b2b2b;stroke:#111;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}.coord{position:absolute;z-index:3;font-size:clamp(9px,1.2vw,13px);font-weight:800}.coord.file{right:4px;bottom:2px}.coord.rank{left:4px;top:2px}.light .coord{color:var(--dark)}.dark .coord{color:var(--light)}
+.panel{background:var(--panel);border-radius:10px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.24)}.header{padding:20px 22px 16px;border-bottom:1px solid rgba(255,255,255,.07)}.eyebrow{color:#a8c98b;font-size:12px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.header h1{margin:7px 0 0;font-size:clamp(25px,3vw,35px);line-height:1.08}.module{margin:8px 0 0;color:var(--muted)}.body{padding:18px 22px 22px}.card{background:var(--soft);border-radius:7px;padding:13px 14px;margin:0 0 12px;line-height:1.48}.card strong{display:block;color:#fff;margin-bottom:3px}.action{border-left:4px solid var(--accent)}.avoid{border-left:4px solid var(--warning)}.drill{background:rgba(0,0,0,.18);border-radius:8px;padding:13px 14px;line-height:1.5}.drill code{color:#d8f5bf}.rule{font-size:18px;line-height:1.45;margin:0 0 15px}.nav{display:flex;gap:8px;justify-content:space-between;padding:0 22px 22px}.nav a{background:#4b4845;color:white;text-decoration:none;padding:9px 12px;border-radius:6px;font-weight:750}.nav a:hover{filter:brightness(1.08)}
+.footer{width:min(1180px,96vw);margin:0 auto 24px;color:#9d9d9d;font-size:12px;line-height:1.5;text-align:center}.footer strong{color:#c9c9c9}
+@media(max-width:860px){.app{grid-template-columns:1fr;width:min(720px,94vw)}.top,.footer{width:min(720px,94vw)}}
+
+/* V2 field-training additions */
+.board{grid-template-rows:repeat(8,1fr)}
+.square{min-width:0;min-height:0}
+.objective{font-size:16px;line-height:1.5;margin:0 0 15px;color:#ddd}
+.trigger{border-left:4px solid #9a9a9a}
+.combat{margin-top:14px;background:#282725;border:1px solid rgba(255,255,255,.10);border-radius:8px;overflow:hidden}
+.combat summary{cursor:pointer;padding:13px 14px;font-weight:850;color:#d8f5bf}
+.combat .answer{padding:0 14px 14px;line-height:1.5}
+.related{margin-top:16px;border-top:1px solid rgba(255,255,255,.10);padding-top:14px}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#aaa;margin:0 0 9px}
+.related-links{display:grid;gap:7px}
+.related a{background:#282725;text-decoration:none;padding:9px 10px;border-radius:6px;color:#ddd}
+.review-link{background:#755f2c!important}
+.review-card{background:var(--panel);border-radius:9px;padding:16px;margin:12px 0}
+.review-card details{background:#282725;border-radius:7px;padding:10px 12px}
+.review-card summary{cursor:pointer;font-weight:800;color:#d8f5bf}
+</style></head><body>
+<div class="top"><a href="index.html">← Black Hippo index</a><span class="count">V2 • Lesson 63 of 100</span></div>
+<main class="app"><section><div aria-label="Chess position" class="board" id="board"></div></section><aside class="panel"><div class="header"><div class="eyebrow">Black Hippo • Field Training</div><h1>Against the Reti</h1><p class="module">Opponent Systems</p></div><div class="body">
+<p class="objective"><strong>Objective:</strong> recognize this situation fast enough to choose a useful plan before you drift into autopilot.</p>
+<div class="card trigger"><strong>Trigger</strong>White develops Nf3 and g3 before occupying the center.</div>
+<div class="card action"><strong>Order</strong>Use the time to develop, but keep c5/e5 options open until White commits d4 or c4.</div>
+<div class="card"><strong>Reason</strong>A quiet opponent does not force you to rush; flexibility is an asset for both sides.</div>
+<div class="card avoid"><strong>Abort / warning</strong>Do not make weakening waiting moves merely because White has not shown a target.</div>
+<div class="drill"><strong>30-second drill</strong><br/>Cover the answer. Read the trigger, issue your order in one sentence, then name the opponent's best tactical objection. Only then reveal the combat check.</div><details class="combat"><summary>Combat check — decide before revealing the answer</summary><div class="answer"><p><strong>Situation:</strong> White develops Nf3 and g3 before occupying the center.</p><p><strong>Your order:</strong> Use the time to develop, but keep c5/e5 options open until White commits d4 or c4.</p><p><strong>Why:</strong> A quiet opponent does not force you to rush; flexibility is an asset for both sides.</p><p><strong>Failure condition:</strong> Do not make weakening waiting moves merely because White has not shown a target.</p></div></details><div class="related"><h3>Related doctrine</h3><div class="related-links"><a href="064.html">064 — Against the London System</a><a href="061.html">061 — Against 1.d4 and 2.c4</a><a href="069.html">069 — Against 1.Nc3</a></div></div>
+</div><div class="nav"><a href="062.html">← Previous</a><a class="review-link" href="review.html">Review</a><a href="064.html">Next →</a></div></aside></main>
+<footer class="footer"><strong>AI-made and free. This material is intended for learning and sharing, not for sale. Piece artwork is original simplified SVG based on traditional Staunton conventions; it is not copied from Chess.com or Lichess asset files.</strong><br/>System rules are starting points. Checks, captures, threats, king safety, and concrete tactics have priority over the Hippo shell.</footer>
+<script>
+const FEN = "r2q1rk1/1bpnnpb1/pp1pp1pp/4P3/3P4/2NBBN2/PPPQ1PPP/R2R2K1 b - - 0 1";
+const FLIPPED = true;
+const HIGHLIGHTS = ["c4", "d5", "d4", "e5"];
+
+  const pieces = {
+    K:["king","white"], Q:["queen","white"], R:["rook","white"], B:["bishop","white"], N:["knight","white"], P:["pawn","white"],
+    k:["king","black"], q:["queen","black"], r:["rook","black"], b:["bishop","black"], n:["knight","black"], p:["pawn","black"]
+  };
+  function getPieceSVG(type){
+    const s={
+      king:`<svg viewBox="0 0 100 100"><rect x="47" y="7" width="6" height="16" rx="1.5"/><rect x="41" y="12" width="18" height="6" rx="1.5"/><path d="M39 31C39 24 44 20 50 20C56 20 61 24 61 31C61 37 57 42 54 46L58 57H42L46 46C43 42 39 37 39 31Z"/><path d="M38 57H62L68 70H32Z"/><rect x="29" y="70" width="42" height="7" rx="2"/><rect x="25" y="79" width="50" height="9" rx="2"/></svg>`,
+      queen:`<svg viewBox="0 0 100 100"><circle cx="24" cy="22" r="4"/><circle cx="38" cy="17" r="4"/><circle cx="50" cy="14" r="4"/><circle cx="62" cy="17" r="4"/><circle cx="76" cy="22" r="4"/><path d="M24 29L33 55H67L76 29L64 36L56 27L50 40L44 27L36 36Z"/><path d="M37 55H63L68 70H32Z"/><rect x="29" y="70" width="42" height="7" rx="2"/><rect x="25" y="79" width="50" height="9" rx="2"/></svg>`,
+      rook:`<svg viewBox="0 0 100 100"><path d="M27 16H39V27H46V16H54V27H61V16H73V36H27Z"/><path d="M34 36H66L63 61H37Z"/><path d="M37 61H63L68 70H32Z"/><rect x="29" y="70" width="42" height="7" rx="2"/><rect x="25" y="79" width="50" height="9" rx="2"/></svg>`,
+      bishop:`<svg viewBox="0 0 100 100"><circle cx="50" cy="18" r="5"/><path d="M50 24C59 24 65 31 65 40C65 48 60 54 55 59L60 65H40L45 59C40 54 35 48 35 40C35 31 41 24 50 24Z"/><path d="M45 30L56 48"/><path d="M39 65H61L67 70H33Z"/><rect x="29" y="70" width="42" height="7" rx="2"/><rect x="25" y="79" width="50" height="9" rx="2"/></svg>`,
+      knight:`<svg viewBox="0 0 100 100"><path d="M31 70C31 64 34 59 39 54C43 50 46 46 47 42C42 45 37 47 32 47C27 47 23 44 22 40C21 36 23 32 27 29L36 22L39 13L46 20L53 13L57 26C66 30 72 37 74 46C76 56 72 64 64 70Z"/><path d="M39 25C47 26 54 29 60 35C54 34 49 35 44 38"/><circle cx="50" cy="29" r="2.5"/><path d="M25 37C31 39 37 39 43 37"/><circle cx="29.5" cy="36.5" r="1.5"/><rect x="29" y="70" width="42" height="7" rx="2"/><rect x="25" y="79" width="50" height="9" rx="2"/></svg>`,
+      pawn:`<svg viewBox="0 0 100 100"><circle cx="50" cy="25" r="10"/><path d="M41 52C41 44 45 37 50 37C55 37 59 44 59 52L55 61H45Z"/><path d="M44 61H56L63 70H37Z"/><rect x="30" y="70" width="40" height="7" rx="2"/><rect x="26" y="79" width="48" height="9" rx="2"/></svg>`
+    }; return s[type];
+  }
+
+function parseFEN(fen){const rows=fen.trim().split(/\s+/)[0].split('/');const pos={};rows.forEach((row,ri)=>{let fi=0;for(const ch of row){if(/\d/.test(ch)){fi+=Number(ch)}else{pos['abcdefgh'[fi]+(8-ri)]=ch;fi++}}});return pos}
+function draw(){const b=document.getElementById('board'),pos=parseFEN(FEN);b.innerHTML='';const files=FLIPPED?[...'hgfedcba']:[...'abcdefgh'];const ranks=FLIPPED?[1,2,3,4,5,6,7,8]:[8,7,6,5,4,3,2,1];ranks.forEach((rank,r)=>files.forEach((file,c)=>{const name=file+rank,s=document.createElement('div');s.className='square '+(((r+c)%2===0)?'light':'dark');if(HIGHLIGHTS.includes(name))s.classList.add('highlight');if(c===0){const x=document.createElement('span');x.className='coord rank';x.textContent=rank;s.appendChild(x)}if(r===7){const x=document.createElement('span');x.className='coord file';x.textContent=file;s.appendChild(x)}const pc=pos[name];if(pc){const [type,color]=pieces[pc],e=document.createElement('span');e.className='piece '+color;e.setAttribute('aria-label',`${color} ${type} on ${name}`);e.innerHTML=getPieceSVG(type);s.appendChild(e)}s.addEventListener('click',()=>s.classList.toggle('highlight'));b.appendChild(s)}))}
+draw();
+</script>
+</body></html>

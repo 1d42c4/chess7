@@ -1,0 +1,33 @@
+CHESS COMBAT SCHOOL — GITHUB PAGES PACKAGE
+
+Modern field-manual lesson count: 1,075
+HTML files in package: 1,106
+Internal-link audit: PASSED (0 broken links)
+
+COURSES
+- Hippo from Black: 100 lessons — courses/hippo/hippo-from-black/
+- Hippo from White: 100 lessons — courses/hippo/hippo-from-white/
+- King's Indian Defense from Black: 120 lessons — courses/kings-indian-defense/kings-indian-from-black/
+- King's Indian Defense from White: 100 lessons — courses/kings-indian-defense/kings-indian-from-white/
+- King's Indian Attack: 100 lessons — courses/kings-indian-attack/
+- King's Gambit: 160 lessons — courses/kings-gambit/
+- 1.d4 + 2.c4 White Repertoire: 255 lessons — courses/d4-c4-white/
+- Scandinavian Defense: 140 lessons — courses/scandinavian-defense/
+
+ALSO INCLUDED
+- Root GitHub Pages homepage: index.html
+- Beginner opening field guide: guides/beginner-chess-openings.html
+- Course ZIP downloads: downloads/
+- README.md
+- COURSES.md
+- ERRATA.md
+- STUDY_LOG.md
+- .nojekyll
+- tools/verify_site.py
+- organize-existing-repo.sh
+- UPLOAD_INSTRUCTIONS.txt
+
+LEGACY PRESERVATION
+The migration script preserves the existing live repository's
+chess-opening-courses/ files and grok-hippo-lessons.zip when run
+after this package is overlaid onto a cloned repository.
