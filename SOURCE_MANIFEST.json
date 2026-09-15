@@ -1,7 +1,7 @@
 {
   "sourceFolder": "Chess-Combat-School",
-  "repository": "https://github.com/knightway8/chess7",
-  "website": "https://knightway8.github.io/chess7/",
+  "repository": "https://github.com/1d42c4/chess7",
+  "website": "https://1d42c4.github.io/chess7/",
   "originalFileCount": 1355,
   "files": [
     {
@@ -2389,7 +2389,7 @@
       "modified": false
     },
     {
-      "path": "courses/grok-hippo/hippo-black/039-against-the-s├ñmisch-style-setups.html",
+      "path": "courses/grok-hippo/hippo-black/039-against-the-s\u251c\u00f1misch-style-setups.html",
       "sourceBytes": 3917,
       "uploadedBytes": 3917,
       "sourceSha256": "411799d20a5a01f786582e56cd1648a28233289d2a58f3e4b552caee7deac379",
@@ -10735,9 +10735,9 @@
     {
       "path": "index.html",
       "sourceBytes": 8722,
-      "uploadedBytes": 8713,
+      "uploadedBytes": 8709,
       "sourceSha256": "98e53959da255f99dc072178454d14c3891a675e961834d76e076e6b71ba4b85",
-      "uploadedSha256": "887777935b2eeef69f9fdf4f107ea10515c4b870836ef4a54a24506c16ea5d1a",
+      "uploadedSha256": "d2042b0492a1cd67fca58aa58568c723a7918d89995a7fb79e4a7f20d882ca51",
       "modified": true
     },
     {
@@ -10815,9 +10815,9 @@
     {
       "path": "README.md",
       "sourceBytes": 10114,
-      "uploadedBytes": 12704,
+      "uploadedBytes": 12660,
       "sourceSha256": "53e703303d64afab0e88a6ad6bc251b53fcf3d0e9d44db36aa1c3820d1c72bce",
-      "uploadedSha256": "ea46121cd01933064b30f46a29c91e764986a02ac41d60d82a78cc956a9bdbfa",
+      "uploadedSha256": "a47dd264e26687dc4384bd9b672d29f3aad48fb240c72cf475488b8f10966302",
       "modified": true
     },
     {
@@ -10847,7 +10847,7 @@
   ],
   "publishingChanges": [
     {
-      "path": "courses/grok-hippo/hippo-black/039-against-the-sämisch-style-setups.html",
+      "path": "courses/grok-hippo/hippo-black/039-against-the-s\u00e4misch-style-setups.html",
       "reason": "Added correctly encoded filename for an existing lesson link; retained the original file."
     },
     {
