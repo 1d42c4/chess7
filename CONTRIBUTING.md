@@ -1,6 +1,6 @@
 # Updating Chess Combat School
 
-The published course is at <https://knightway8.github.io/chess7/>. This repository contains prebuilt HTML lessons, downloadable archives, and supporting documentation.
+The published course is at <https://1d42c4.github.io/chess7/>. This repository contains prebuilt HTML lessons, downloadable archives, and supporting documentation.
 
 ## Make a small change through a pull request
 
@@ -29,7 +29,7 @@ For a documentation-only change, preview the Markdown and check its links. Leave
 GitHub Pages serves `/` from `main`; `.nojekyll` enables direct static-file publishing. After merging:
 
 1. Check the repository's **Actions** tab for the Pages build and deployment result.
-2. Open the [live course](https://knightway8.github.io/chess7/) and the page you changed after deployment succeeds.
+2. Open the [live course](https://1d42c4.github.io/chess7/) and the page you changed after deployment succeeds.
 3. If a cached copy remains visible, refresh after allowing time for the deployment to reach the public site.
 
 If publication fails, inspect the failed run before changing any settings. Keep the root `index.html`, `.nojekyll`, and existing Pages source configuration in place for ordinary lesson or documentation updates.
@@ -46,7 +46,7 @@ Each site has its own repository and publishes independently. Submit changes to 
 
 | Repository | Live site |
 | --- | --- |
-| [chess7 — Chess Combat School](https://github.com/knightway8/chess7) | [Open](https://knightway8.github.io/chess7/) |
-| [chess8 — OnePageLove Chess](https://github.com/knightway8/chess8) | [Open](https://knightway8.github.io/chess8/) |
-| [chess9 — Positional Logic](https://github.com/knightway8/chess9) | [Open](https://knightway8.github.io/chess9/) |
-| [chess10 — The Earlier Advantage](https://github.com/knightway8/chess10) | [Open](https://knightway8.github.io/chess10/) |
+| [chess7 — Chess Combat School](https://github.com/1d42c4/chess7) | [Open](https://1d42c4.github.io/chess7/) |
+| [chess8 — OnePageLove Chess](https://github.com/1d42c4/chess8) | [Open](https://1d42c4.github.io/chess8/) |
+| [chess9 — Positional Logic](https://github.com/1d42c4/chess9) | [Open](https://1d42c4.github.io/chess9/) |
+| [chess10 — The Earlier Advantage](https://github.com/1d42c4/chess10) | [Open](https://1d42c4.github.io/chess10/) |
