@@ -10735,9 +10735,9 @@
     {
       "path": "index.html",
       "sourceBytes": 8722,
-      "uploadedBytes": 8799,
+      "uploadedBytes": 8709,
       "sourceSha256": "98e53959da255f99dc072178454d14c3891a675e961834d76e076e6b71ba4b85",
-      "uploadedSha256": "90773edd9bab7bcdd3e58d0b878ee781b8c829394c69e7bb00b6aab55d9aa24c",
+      "uploadedSha256": "d2042b0492a1cd67fca58aa58568c723a7918d89995a7fb79e4a7f20d882ca51",
       "modified": true
     },
     {
@@ -10815,9 +10815,9 @@
     {
       "path": "README.md",
       "sourceBytes": 10114,
-      "uploadedBytes": 13002,
+      "uploadedBytes": 12660,
       "sourceSha256": "53e703303d64afab0e88a6ad6bc251b53fcf3d0e9d44db36aa1c3820d1c72bce",
-      "uploadedSha256": "d24071c041eca9e8102c33670e4fff7a768fde750505c99ef06b936fe6d8cb47",
+      "uploadedSha256": "a47dd264e26687dc4384bd9b672d29f3aad48fb240c72cf475488b8f10966302",
       "modified": true
     },
     {
